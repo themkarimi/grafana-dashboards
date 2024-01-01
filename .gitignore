@@ -1,0 +1,36 @@
+# Ignore Grafana provisioning configuration files
+provisioning/
+
+# Ignore Grafana dashboard provisioning YAML files
+*.yaml
+
+# Ignore Grafana exported dashboard JSON files
+*.json
+
+# Ignore Grafana temporary files or backup files
+*.tmp
+*.bak
+
+# Ignore Grafana data sources configuration files if stored within the repository
+datasources/
+
+# Ignore Grafana plugins or plugin related files
+plugins/
+
+# Ignore Grafana logs and cache files
+logs/
+*.cache
+
+# Ignore Grafana user-specific configuration files
+*.conf
+
+# Ignore any sensitive or environment-specific files
+.env
+secrets.yml
+
+# Ignore Grafana backup files or archives
+*.zip
+*.tar.gz
+*.tgz
+
+
