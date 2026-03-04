@@ -75,7 +75,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(jfsh_binaries_bytes_download_total)",
+          "expr": "sum(jfsh_binaries_bytes_download_total{instance=\"$instance\"})",
           "refId": "A"
         }
       ],
@@ -136,7 +136,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(jfsh_binaries_bytes_upload_total)",
+          "expr": "sum(jfsh_binaries_bytes_upload_total{instance=\"$instance\"})",
           "refId": "A"
         }
       ],
@@ -197,7 +197,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "app_disk_free_bytes",
+          "expr": "app_disk_free_bytes{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -266,7 +266,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "(app_disk_used_bytes / (app_disk_used_bytes + app_disk_free_bytes)) * 100",
+          "expr": "(app_disk_used_bytes{instance=\"$instance\"} / (app_disk_used_bytes{instance=\"$instance\"} + app_disk_free_bytes{instance=\"$instance\"})) * 100",
           "refId": "A"
         }
       ],
@@ -356,7 +356,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(jfsh_binaries_bytes_download_total[5m])",
+          "expr": "rate(jfsh_binaries_bytes_download_total{instance=\"$instance\"}[5m])",
           "legendFormat": "Download - {{name}}",
           "refId": "A"
         },
@@ -365,7 +365,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(jfsh_binaries_bytes_upload_total[5m])",
+          "expr": "rate(jfsh_binaries_bytes_upload_total{instance=\"$instance\"}[5m])",
           "legendFormat": "Upload - {{name}}",
           "refId": "B"
         }
@@ -458,7 +458,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_runtime_heap_totalmemory_bytes",
+          "expr": "jfrt_runtime_heap_totalmemory_bytes{instance=\"$instance\"}",
           "legendFormat": "Total Memory",
           "refId": "A"
         },
@@ -467,7 +467,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_runtime_heap_maxmemory_bytes",
+          "expr": "jfrt_runtime_heap_maxmemory_bytes{instance=\"$instance\"}",
           "legendFormat": "Max Memory",
           "refId": "B"
         },
@@ -476,7 +476,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_runtime_heap_freememory_bytes",
+          "expr": "jfrt_runtime_heap_freememory_bytes{instance=\"$instance\"}",
           "legendFormat": "Free Memory",
           "refId": "C"
         },
@@ -485,7 +485,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_runtime_heap_totalmemory_bytes - jfrt_runtime_heap_freememory_bytes",
+          "expr": "jfrt_runtime_heap_totalmemory_bytes{instance=\"$instance\"} - jfrt_runtime_heap_freememory_bytes{instance=\"$instance\"}",
           "legendFormat": "Used Memory",
           "refId": "D"
         }
@@ -579,7 +579,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_db_connections_active_total",
+          "expr": "jfrt_db_connections_active_total{instance=\"$instance\"}",
           "legendFormat": "Active",
           "refId": "A"
         },
@@ -588,7 +588,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_db_connections_idle_total",
+          "expr": "jfrt_db_connections_idle_total{instance=\"$instance\"}",
           "legendFormat": "Idle",
           "refId": "B"
         }
@@ -650,7 +650,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_db_connections_max_active_total",
+          "expr": "jfrt_db_connections_max_active_total{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -711,7 +711,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_db_connections_min_idle_total",
+          "expr": "jfrt_db_connections_min_idle_total{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -776,7 +776,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_repo_by_type_total",
+          "expr": "jfrt_repo_by_type_total{instance=\"$instance\"}",
           "legendFormat": "{{package}} - {{type}}",
           "refId": "A"
         }
@@ -870,7 +870,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(jfsh_binaries_download_successes_total[5m])",
+          "expr": "rate(jfsh_binaries_download_successes_total{instance=\"$instance\"}[5m])",
           "legendFormat": "Download Success",
           "refId": "A"
         },
@@ -879,7 +879,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(jfsh_binaries_download_failures_total[5m])",
+          "expr": "rate(jfsh_binaries_download_failures_total{instance=\"$instance\"}[5m])",
           "legendFormat": "Download Failures",
           "refId": "B"
         },
@@ -888,7 +888,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(jfsh_binaries_upload_successes_total[5m])",
+          "expr": "rate(jfsh_binaries_upload_successes_total{instance=\"$instance\"}[5m])",
           "legendFormat": "Upload Success",
           "refId": "C"
         },
@@ -897,7 +897,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(jfsh_binaries_upload_failures_total[5m])",
+          "expr": "rate(jfsh_binaries_upload_failures_total{instance=\"$instance\"}[5m])",
           "legendFormat": "Upload Failures",
           "refId": "D"
         }
@@ -959,7 +959,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_stg_summary_size_bytes",
+          "expr": "jfrt_stg_summary_size_bytes{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -1020,7 +1020,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_stg_summary_files_total",
+          "expr": "jfrt_stg_summary_files_total{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -1123,7 +1123,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "process_cpu_usage",
+          "expr": "process_cpu_usage{instance=\"$instance\"}",
           "legendFormat": "Process CPU",
           "refId": "A"
         }
@@ -1216,7 +1216,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jvm_gc_max_data_size_bytes",
+          "expr": "jvm_gc_max_data_size_bytes{instance=\"$instance\"}",
           "legendFormat": "Max Data Size",
           "refId": "A"
         },
@@ -1225,7 +1225,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jvm_gc_live_data_size_bytes",
+          "expr": "jvm_gc_live_data_size_bytes{instance=\"$instance\"}",
           "legendFormat": "Live Data Size",
           "refId": "B"
         }
@@ -1319,7 +1319,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfsh_thread_pool_active_count_total",
+          "expr": "jfsh_thread_pool_active_count_total{instance=\"$instance\"}",
           "legendFormat": "Active - {{name}}",
           "refId": "A"
         },
@@ -1328,7 +1328,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfsh_thread_pool_pending_tasks_total",
+          "expr": "jfsh_thread_pool_pending_tasks_total{instance=\"$instance\"}",
           "legendFormat": "Pending - {{name}}",
           "refId": "B"
         }
@@ -1390,7 +1390,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_artifacts_gc_size_cleaned_bytes",
+          "expr": "jfrt_artifacts_gc_size_cleaned_bytes{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -1451,7 +1451,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_artifacts_gc_binaries_total",
+          "expr": "jfrt_artifacts_gc_binaries_total{instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -1544,7 +1544,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "topk(10, rate(jfrt_slow_queries_count_total[5m]))",
+          "expr": "topk(10, rate(jfrt_slow_queries_count_total{instance=\"$instance\"}[5m]))",
           "legendFormat": "{{query}}",
           "refId": "A"
         }
@@ -1640,7 +1640,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "jfrt_stg_summary_repo_size_bytes{}",
+          "expr": "jfrt_stg_summary_repo_size_bytes{instance=\"$instance\"}",
           "legendFormat": "{{package}}--{{type}}",
           "range": true,
           "refId": "A"
@@ -1650,7 +1650,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_stg_summary_repo_max_size_bytes",
+          "expr": "jfrt_stg_summary_repo_max_size_bytes{instance=\"$instance\"}",
           "hide": true,
           "legendFormat": "Max Repo Size",
           "refId": "B"
@@ -1721,7 +1721,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "time() - process_start_time_seconds{job=~\".*artifactory.*\"}",
+          "expr": "time() - process_start_time_seconds{job=~\".*artifactory.*\", instance=\"$instance\"}",
           "refId": "A"
         }
       ],
@@ -1812,7 +1812,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_runtime_heap_maxmemory_bytes",
+          "expr": "jfrt_runtime_heap_maxmemory_bytes{instance=\"$instance\"}",
           "legendFormat": "Max Heap Memory",
           "refId": "A"
         },
@@ -1821,7 +1821,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_app_version_info",
+          "expr": "jfrt_app_version_info{instance=\"$instance\"}",
           "legendFormat": "Version: {{version}}",
           "refId": "B"
         },
@@ -1830,7 +1830,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "jfrt_app_version_info",
+          "expr": "jfrt_app_version_info{instance=\"$instance\"}",
           "legendFormat": "Node: {{node_id}}",
           "refId": "C"
         }
@@ -1861,6 +1861,28 @@
         "refresh": 1,
         "regex": "",
         "type": "datasource"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "definition": "label_values(jfrt_runtime_heap_maxmemory_bytes, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "query": "label_values(jfrt_runtime_heap_maxmemory_bytes, instance)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "sort": 1,
+        "type": "query"
       }
     ]
   },
